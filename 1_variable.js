@@ -6,12 +6,36 @@
 var name="Khademul";
 console.log(name);
 
-// For let variable keyword we can update the variable value
+// This let keyword we can use for update the variable value
 let number1=5;
 number1=10
 console.log(number1);
 
-// we can not change the variable value 
+// we can not change the variable value this is like constant 
 const id=17103335;
 console.log(id);
 
+// Simple addition...
+
+var num1=10;
+var num2=10;
+var sum=num1+num2;
+
+console.log("The sum is:"+sum)
+
+// Local variable
+
+function local(){
+    var num="Khademul";
+    console.log(num);
+}
+local()
+
+//Global variable
+
+let car_name='Volvo'
+
+function myCar(){
+    console.log(car_name);
+}
+myCar();
