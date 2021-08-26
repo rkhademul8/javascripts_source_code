@@ -39,3 +39,17 @@ function myCar(){
     console.log(car_name);
 }
 myCar();
+
+
+// HOw to use template string. There are two way to use template string
+
+1. 
+
+
+// let name= 'Khademul'
+// console.log(`My name is `+name+` `);
+
+2. 
+let computer='Apple'
+
+console.log(`This is ${computer} `);
