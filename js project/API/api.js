@@ -1,4 +1,21 @@
 
+// Object convert string and again object using JSON
+
+// const object={
+//     name:'Khademul',
+//     city:'Dhaka',
+//     id:17103335,
+    
+    
+// }
+
+// const data=JSON.stringify(object)
+// console.log(data)
+// const obj= JSON.parse(data)
+// console.log(obj);
+
+
+
 
 // 1. How to fetch data from server 
 
@@ -72,22 +89,22 @@
 
 // 6.
 
-function getUser(){
-    fetch('https://jsonplaceholder.typicode.com/posts')
-    .then(res=>res.json())
-    .then(data=>displayPost(data))
-}
+// function getUser(){
+//     fetch('https://jsonplaceholder.typicode.com/posts')
+//     .then(res=>res.json())
+//     .then(data=>displayPost(data))
+// }
 
-function displayPost(posts){
-    const parent=document.getElementById('parentPost');
-    for (const post of posts) {
-        const div=document.createElement('div');
-        div.classList.add('post');
-        // div.style.background='red';
-        div.innerHTML=`
-        <h3>${post.title}</h3>
-        <p>${post.body}</p>
-        `
-        parent.appendChild(div)    
-    }    
-}
+// function displayPost(posts){
+//     const parent=document.getElementById('parentPost');
+//     for (const post of posts) {
+//         const div=document.createElement('div');
+//         div.classList.add('post');
+//         // div.style.background='red';
+//         div.innerHTML=`
+//         <h3>${post.title}</h3>
+//         <p>${post.body}</p>
+//         `
+//         parent.appendChild(div)    
+//     }    
+// }

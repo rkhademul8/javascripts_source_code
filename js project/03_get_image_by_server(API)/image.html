@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Access By server</title>
+</head>
+<body>
+    
+<button onclick="loadData()">Click Me</button>
+
+<img id="get_img" src=""></img>
+
+
+<script>
+
+   function loadData(){
+    fetch('https://randomuser.me/api/')
+    .then(res=>res.json())
+    .then(data=>display(data))
+   }
+
+   function display(user){
+        // console.log(user.results[0].name.first,user.results[0].name.last);
+        const img=document.getElementById('get_img')
+        const img_path=user.results[0].picture.large
+
+        // img.src=img_path 
+
+        // or
+        img.setAttribute('src',img_path)
+        
+   }
+
+</script>
+
+</body>
+</html>
