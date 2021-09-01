@@ -1,0 +1,96 @@
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Practice</title>
+    <style>
+
+        .custom{
+            background-color: bisque;
+            padding: 10px;
+            margin-bottom: 10px;
+        }
+        #all_country_display{
+            display: grid;
+            grid-template-columns: repeat(4,1fr);
+            gap: 30px;
+        }
+        .cunstom_style{
+            background-color: #ccc;
+        }
+         .cunstom_style img{
+            width: 250px;
+            display: block;
+            margin: 10px auto;
+            border: 3px solid #fff;
+            
+        }
+    </style>
+</head>
+<body>
+    <div class="section" id="country_info">
+        
+    </div>
+    <div class="section" id="all_country_display">
+
+    </div>
+
+    <script>
+        function loadData(){
+            fetch('https://restcountries.eu/rest/v2/all')
+            .then(convert=>convert.json())
+            .then(data=>display_all_country(data))
+        }
+
+        loadData()
+
+        function display_all_country(data) {
+            // console.log(data);
+            for (const datas of data) {
+               const country_details=document.getElementById('all_country_display')
+
+               const div=document.createElement('div')
+               div.classList='cunstom_style'
+                div.innerHTML=`
+                <img src='${datas.flag}'>
+                <h1>${datas.name}</h1>
+                <button onclick=display_details('${datas.alpha3Code}')>More Details</button>
+                `
+                country_details.appendChild(div)
+            }
+
+        }
+
+        function display_details(code) {
+            console.log(code);
+            fetch(`https://restcountries.eu/rest/v2/alpha/${code}`)
+            .then(convert=>convert.json())
+            .then(data=>display_country_details(data))
+        }
+
+        function display_country_details(data) {
+            // console.log(data.name);
+            const country_info=document.getElementById('country_info')
+            country_info.innerText=''
+            const create_div=document.createElement('div')
+            create_div.classList='custom'
+            create_div.innerHTML=`
+            <h1>The country Name:${data.name}</h1>
+            <p>Native name of the country:${data.nativeName}<p>
+            <p>Total population:${data.population}<p>
+            <p>The Region:${data.region}<p>
+            <p>The subregion:${data.subregion}<p>
+            <p>Thank You <p>
+
+            `
+            country_info.appendChild(create_div)
+        }
+    </script>
+</body>
+</html>

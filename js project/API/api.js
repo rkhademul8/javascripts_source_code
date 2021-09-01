@@ -89,22 +89,22 @@
 
 // 6.
 
-// function getUser(){
-//     fetch('https://jsonplaceholder.typicode.com/posts')
-//     .then(res=>res.json())
-//     .then(data=>displayPost(data))
-// }
+function getUser(){
+    fetch('https://jsonplaceholder.typicode.com/posts')
+    .then(res=>res.json())
+    .then(data=>displayPost(data))
+}
 
-// function displayPost(posts){
-//     const parent=document.getElementById('parentPost');
-//     for (const post of posts) {
-//         const div=document.createElement('div');
-//         div.classList.add('post');
-//         // div.style.background='red';
-//         div.innerHTML=`
-//         <h3>${post.title}</h3>
-//         <p>${post.body}</p>
-//         `
-//         parent.appendChild(div)    
-//     }    
-// }
+function displayPost(posts){
+    const parent=document.getElementById('parentPost');
+    for (const post of posts) {
+        const div=document.createElement('div');
+        div.classList.add('post');
+        // div.style.background='red';
+        div.innerHTML=`
+        <h3>${post.title}</h3>
+        <p>${post.body}</p>
+        `
+        parent.appendChild(div)    
+    }    
+}
