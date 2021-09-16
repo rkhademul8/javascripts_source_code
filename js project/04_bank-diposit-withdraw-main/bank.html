@@ -13,14 +13,14 @@
     <div class="row g-2">
         <h1 class="text-center  m-3">Welcome to <span class="text-danger ">Your Account</span></h1>
 
-        <div class="col-4  ">       
+        <div class=" clo-lg-6 col-md-4  ">       
             <div class="p-3 border bg-danger text-white" id="deposit">
                 <h4 >DEPOSIT</h4>
                 $<span id="deposit-output">00</span> 
             </div>
         </div>
 
-        <div class="col-4">
+        <div class="clo-lg-6 col-md-4 ">
             <div class="p-3 border bg-primary text-white " id="withdraw">
                 <h4>WITHDRAW</h4>
                 $<span id="Withdraw-output"> 00</span>
@@ -29,7 +29,7 @@
           </div>
     
           
-          <div class="col-4">
+          <div class="clo-lg-6 col-md-4 ">
             <div class="p-3 border bg-danger text-white"id="balance">
                 <h4>BALANCE</h4>
                 $ <span id="balance-output"> 1000</span>
@@ -39,9 +39,9 @@
     
     
     
-          <div class="col-4">
+          <div class=" clo-lg-6 col-md-4">
             <div class="p-3 border bg-primary text-white" id="deposit_submit">
-                <input id="deposit-input" placeholder="Enter your money">
+                <input class="form-control" id="deposit-input" placeholder="Enter your money">
                 <div class="mt-2">
                     <button id="deposit-btn" type="button" class="btn btn-warning">Deposit</button>
                 </div>
@@ -51,9 +51,9 @@
     
     
     
-          <div class="col-4">
+          <div class="clo-lg-6 col-md-4">
             <div class="p-3 border bg-danger text-white"id="deposit_submit">
-            <input id="withdraw-input" placeholder="Enter your money">
+            <input class="form-control" id="withdraw-input" placeholder="Enter your money">
             <div class="mt-2">
                 <button id="withdraw-btn" type="button" class="btn btn-warning">Withdraw</button>
             </div>
@@ -110,9 +110,17 @@
                 // withdraw balance from total balance
                 const balanceOutput=document.getElementById('balance-output');
                 const preBalance=parseFloat(balanceOutput.innerText)
-
                 const total_withdraw=preBalance-withdraw_value
-                balanceOutput.innerText=total_withdraw
+                if(total_withdraw<=0){
+                    balanceOutput.innerText=total_withdraw
+                }
+
+                else{
+                    alert("Your blance is 0")
+                }
+                
+               
+                
             }
             else{
                 alert("Oh man! You are wrong typing ")
