@@ -7,19 +7,112 @@
     <title>Something Try</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-</head>
+
+      <style>
+
+        #comment_hide{
+          visibility: hidden;
+        }
+
+        #comment_add{
+          background-color: tomato;
+          border-radius: 15px ;
+        }
+
+      </style>
+  </head>
+
+
 <body>
 
 
+    <div class="container ">
+      <div class="row ">
+        <div class="card mx-auto border-3 mt-5 " style="width: 22rem;">
+          <img src="1.jpg" style=" height: 350px; border: 5px solid tomato; border-radius: 15px; margin-top: 20px;" class="card-img-top" alt="...">
+          <div class="card-body text-center">
+            <p style="margin: 0px;">Md. <span style="color: tomato; ">Khademul</span> Islam </p>
+            <span>Jr. Web Developer</span>
+
+            <div class="button mt-3  ">
+              <button id="like-btn" type="button" class="btn btn-danger">Like <span id="like_display"></span></button> 
+              <button id="comment-btn" type="button" class="btn btn-success">Comment <span id="comment_display"></span></button> 
+              <button id="share-btn" type="button" class="btn btn-danger">Share <span id="share_display"></span> </button> 
+            </div>
+
+            <div class="comment_area d-flex  m-2" id="comment_hide">
+              <textarea id="text_area" cols="10px" rows="1px" class="form-control" placeholder="Comment here" id="floatingTextarea"></textarea>
+              <button id="text_button" type="button" class="btn btn-success ms-2">Press <span id=""></span> </button>         
+            </div>
+            </div>
+            <div id="comment_add"></div>        
+          </div>
+        </div>
+      </div>
+    </div>
 
 
-    
 
 <!-- For Like count -->
   <script>
-
+    let like_Count=0
+    const Like_btn=document.getElementById('like-btn').addEventListener('click',function(){
+     like_Count=like_Count+1;
+     const display_like=document.getElementById('like_display')
+     display_like.innerText=like_Count
+      
+    })
   </script>  
 
+
+
+<!-- Comment  -->
+
+<script>
+
+  const Comment=document.getElementById('comment-btn').addEventListener('click',function(){
+  const comment_box_display=document.getElementById('comment_hide')          
+  comment_box_display.style.visibility='visible';       
+  })
+
+  let comment_count=0;
+
+  const text_Button=document.getElementById('text_button').addEventListener('click',function(){
+  comment_count=comment_count+1
+  const display_comment=document.getElementById('comment_display')
+  display_comment.innerText=comment_count
+  // console.log(comment_count);
+
+  const text_Area=document.getElementById('text_area')
+  const text=text_Area.value;
+    // console.log(text);
+  
+  const P=document.createElement('h6');
+  P.innerText=text_Area.value
+  P.className=' m-2  '
+  const comment_Add=document.getElementById('comment_add');    
+  comment_Add.appendChild(P)
+  text_Area.value='';
+
+  })
+
+</script>
+
+
+
+
+  <!-- For Share Count -->
+  <script>
+
+        let share_Count=0;
+        const Share_btn=document.getElementById('share-btn').addEventListener('click',function(){
+        share_Count=share_Count+1;
+        const display_share=document.getElementById('share_display')
+        display_share.innerText=share_Count
+
+        })
+
+  </script>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 </body>
